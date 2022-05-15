@@ -34,7 +34,10 @@ public class Cruz_Joseph_ProyectoTienda {
         double compra_kilogramos_avena=0;
         double compra_kilogramos_trigo=0;
         double compra_kilogramos_maiz=0;
+        double subtotal_ventas;
         double suma=0;
+        double impuesto;
+        double descuento_subtotal_ventas;
         double trigo_contador=0;
         double maiz_contador=0;
         double avena_contador=0;
@@ -51,9 +54,9 @@ public class Cruz_Joseph_ProyectoTienda {
             System.out.println("***************************************************************");
             System.out.println("************************(5) Cierre de Caja ********************");
             System.out.println("***************************************************************");
-            System.out.println("************************(6) Ver Inventario ********************");
-            System.out.println("***************************************************************");
             System.out.println("************************(7) Salir del Sistema *****************");
+            System.out.println("***************************************************************");
+            System.out.println("************************(7) Inventario******* *****************");
             System.out.println("***************************************************************");
             System.out.println("Elija una de las opciones ingresando el numero correspondiente a la opcion que desea ingresar.");
             int menu=leer.nextInt();
@@ -90,6 +93,7 @@ public class Cruz_Joseph_ProyectoTienda {
                         codigo_producto_vender=leer.nextInt(); 
                         do{
                         if (codigo_producto_vender==1){
+                            leer.nextLine();
                             do{
                             System.out.println("Usted escogio el producto: Azucar\nEl precio de venta es de 30 Lps.\n ¿Puede usted comprar este producto?");
                             puede_comprar_producto=leer.next();
@@ -308,6 +312,28 @@ public class Cruz_Joseph_ProyectoTienda {
                     System.out.println("Precio de cada kilogramo de maiz: "+precio_maiz_venta+" Lps");
                     precio_maiz_venta_total=compra_kilogramos_maiz*precio_maiz_venta;
                     System.out.println("Total de precio en maiz:"+precio_maiz_venta_total);
+                    System.out.println("                                                               ");
+                    subtotal_ventas=precio_azucar_venta_total+precio_avena_venta_total+precio_trigo_venta_total+precio_maiz_venta_total;
+                    System.out.println("Subtotal de ventas: "+subtotal_ventas+" Lps");
+                    System.out.println("                                                               ");
+                    if (subtotal_ventas>=1000){
+                        System.out.println("Usted aplica para descuento: ");
+                        descuento_subtotal_ventas=subtotal_ventas*0.05;
+                        subtotal_ventas=subtotal_ventas-descuento_subtotal_ventas;
+                        System.out.println("Su descuento es: "+descuento_subtotal_ventas+" Lps");
+                    }else if (subtotal_ventas>5000){
+                        System.out.println("Usted aplica para descuento: ");
+                        descuento_subtotal_ventas=subtotal_ventas*0.10;
+                        subtotal_ventas=subtotal_ventas-descuento_subtotal_ventas;
+                        System.out.println("Su descuento es: "+descuento_subtotal_ventas+" Lps");
+                        
+                    }else{
+                        System.out.println("Usted no aplica para descuento");
+                    }
+                    impuesto=subtotal_ventas*0.07;
+                    subtotal_ventas=subtotal_ventas-impuesto;
+                    System.out.println("Impuesto que va a pagar es: "+impuesto);
+                    System.out.println("Total de ventas: "+subtotal_ventas);
                     System.out.println("Presione ENTER para continuar.");
                     salto=leer.next();
                     break;
