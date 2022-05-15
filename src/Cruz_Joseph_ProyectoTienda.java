@@ -9,7 +9,7 @@ public class Cruz_Joseph_ProyectoTienda {
         double caja=0;
         boolean Salir=true;
         int codigo_producto_vender=0;
-        int cantidad_kilogramos;
+        double cantidad_kilogramos;
         double azucar_contador=0;
         String puede_comprar_producto;
         String puede_comprar_productolowercase;
@@ -17,11 +17,19 @@ public class Cruz_Joseph_ProyectoTienda {
         String desea_otro_producto;
         String tipocliente;
         String tipo_cliente;
-        int temp;
-        int temp_azucar;
-        int temp_avena;
-        int temp_trigo;
-        int temp_maiz;
+        double temp;
+        double temp_azucar;
+        double temp_avena;
+        double temp_trigo;
+        double temp_maiz;
+        double precio_azucar_venta_total;
+        double precio_avena_venta_total;
+        double precio_maiz_venta_total;
+        double precio_trigo_venta_total;
+        double precio_azucar_venta=30;
+        double precio_maiz_venta=20;
+        double precio_avena_venta=25;
+        double precio_trigo_venta=32;
         double compra_kilogramos_azucar=0;
         double compra_kilogramos_avena=0;
         double compra_kilogramos_trigo=0;
@@ -88,7 +96,7 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_azucar=leer.nextInt();
+                                temp_azucar=leer.nextDouble();
                                 azucar_contador++;
                                 compra_kilogramos_azucar=compra_kilogramos_azucar+temp_azucar;
                                 System.out.println("Desea usted comprar otro producto?");
@@ -108,7 +116,7 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                               temp_avena=leer.nextInt();
+                               temp_avena=leer.nextDouble();
                                 avena_contador++;
                                  compra_kilogramos_avena=compra_kilogramos_avena+temp_avena;
                                 
@@ -125,7 +133,7 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_trigo=leer.nextInt();
+                                temp_trigo=leer.nextDouble();
                                 compra_kilogramos_trigo=compra_kilogramos_trigo+temp_trigo;
                                 trigo_contador++;
                                                                 
@@ -143,7 +151,7 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_maiz=leer.nextInt();
+                                temp_maiz=leer.nextDouble();
                                 maiz_contador++;
                                 compra_kilogramos_maiz=compra_kilogramos_maiz+temp_maiz;
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
@@ -217,7 +225,7 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_trigo=leer.nextInt();
+                                temp_trigo=leer.nextDouble();
                                 compra_kilogramos_trigo=compra_kilogramos_trigo+temp_trigo;
                                 trigo_contador++;
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
@@ -241,7 +249,7 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_maiz=leer.nextInt();
+                                temp_maiz=leer.nextDouble();
                                 maiz_contador++;
                                 compra_kilogramos_maiz=compra_kilogramos_maiz+temp_maiz;
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
@@ -277,11 +285,43 @@ public class Cruz_Joseph_ProyectoTienda {
                             
                             
                     }while (("si".contentEquals(desea_comprar_otro_producto)));
-                    
+                     System.out.println("*****************************************************************");
                     System.out.println("******************** Bienvenido a Facturacion *******************");
                     System.out.println("*****************************************************************");
                     System.out.println("                                                               ");
-                    System.out.println("Azucar: ");
+                    System.out.println("Cantidad de kilogramos de azucar comprada: "+compra_kilogramos_azucar);
+                    System.out.println("Precio de cada kilogramo de azucar: "+precio_azucar_venta+" Lps");
+                    precio_azucar_venta_total=compra_kilogramos_azucar*precio_azucar_venta;
+                    System.out.println("Total de precio en Azucar:"+precio_azucar_venta_total); 
+                    System.out.println("                                                               ");
+                    System.out.println("Cantidad de kilogramos de avena comprada: "+compra_kilogramos_avena);
+                    System.out.println("Precio de cada kilogramo de avena: "+precio_avena_venta+" Lps");
+                    precio_avena_venta_total=compra_kilogramos_avena*precio_avena_venta;
+                    System.out.println("Total de precio en avena:"+precio_avena_venta_total); 
+                    System.out.println("                                                               ");
+                    System.out.println("Cantidad de kilogramos de trigo comprada: "+compra_kilogramos_trigo);
+                    System.out.println("Precio de cada kilogramo de trigo: "+precio_trigo_venta+" Lps");
+                    precio_trigo_venta_total=compra_kilogramos_trigo*precio_trigo_venta;
+                    System.out.println("Total de precio en trigo:"+precio_trigo_venta_total);
+                    System.out.println("                                                               ");
+                    System.out.println("Cantidad de kilogramos de maiz comprada: "+compra_kilogramos_maiz);
+                    System.out.println("Precio de cada kilogramo de maiz: "+precio_maiz_venta+" Lps");
+                    precio_maiz_venta_total=compra_kilogramos_maiz*precio_maiz_venta;
+                    System.out.println("Total de precio en maiz:"+precio_maiz_venta_total);
+                    System.out.println("Presione ENTER para continuar.");
+                    salto=leer.next();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                    
+                    
+                    
                                
             }
         }
