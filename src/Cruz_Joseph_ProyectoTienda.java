@@ -15,6 +15,13 @@ public class Cruz_Joseph_ProyectoTienda {
         String puede_comprar_productolowercase;
         String desea_comprar_otro_producto;
         String desea_otro_producto;
+        String tipocliente;
+        String tipo_cliente;
+        int temp;
+        int temp_azucar;
+        int temp_avena;
+        int temp_trigo;
+        int temp_maiz;
         double compra_kilogramos_azucar=0;
         double compra_kilogramos_avena=0;
         double compra_kilogramos_trigo=0;
@@ -45,12 +52,16 @@ public class Cruz_Joseph_ProyectoTienda {
             switch (menu){
                 case 1:
                     System.out.println("Usted ha abierto la caja.\nA continuacion ingrese cuando efectivo desea ingresar a caja.");
-                    caja=leer.nextDouble();
-                    System.out.println("Usted ha ingresado " +caja+ " Lps a su caja.");
+                    temp=leer.nextInt();
+                    caja=caja+temp;                    
+                    System.out.println("Usted ha ingresado " +temp+ " Lps a su caja.");
+                    System.out.println("Su saldo total es: "+caja);
                     System.out.println("Presione ENTER para continuar.");
                     String salto=leer.next();
+                    break;
                 case 2:
-                    
+                    do{
+                        do{
                     System.out.println("""
                                        Bienvenido a ventas.
                                         Hay tres tipos de clientes.
@@ -58,9 +69,9 @@ public class Cruz_Joseph_ProyectoTienda {
                                        Cliente tipo B, el cual solo puede comprar productos con codigo 1,2,y 3.
                                        Cliente tipo C, el cual solo puede comprar productos con codigo 4.
                                        Elija que tipo de cliente es (solo escriba la letra correspondiente del tipo de cliente, por ejemplo si quiere el cliente A solo escriba la letra A.).""");
-                    String tipocliente=leer.next();
-                    String tipo_cliente=tipocliente.toUpperCase();
-                    do{
+                    tipocliente=leer.next();
+                    tipo_cliente=tipocliente.toUpperCase();
+                    
                         
                     if ("A".contentEquals(tipo_cliente)){
                         System.out.println("Usted eligio el tipo de cliente "+tipo_cliente+" usted puede comprar cualquier producto disponible.");
@@ -77,9 +88,9 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_azucar=leer.nextDouble();
+                                temp_azucar=leer.nextInt();
                                 azucar_contador++;
-                                suma=compra_kilogramos_azucar;
+                                compra_kilogramos_azucar=compra_kilogramos_azucar+temp_azucar;
                                 System.out.println("Desea usted comprar otro producto?");
                                 
                                 
@@ -97,8 +108,10 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_avena=leer.nextDouble();
+                               temp_avena=leer.nextInt();
                                 avena_contador++;
+                                 compra_kilogramos_avena=compra_kilogramos_avena+temp_avena;
+                                
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Usted no puede comprar este producto.");
                             }else{
@@ -112,8 +125,11 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_trigo=leer.nextDouble();
+                                temp_trigo=leer.nextInt();
+                                compra_kilogramos_trigo=compra_kilogramos_trigo+temp_trigo;
                                 trigo_contador++;
+                                                                
+                                
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Usted no puede comprar este producto.");
                             }else{
@@ -127,8 +143,9 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_maiz=leer.nextDouble();
+                                temp_maiz=leer.nextInt();
                                 maiz_contador++;
+                                compra_kilogramos_maiz=compra_kilogramos_maiz+temp_maiz;
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Usted no puede comprar este producto.");
                             }else{
@@ -164,8 +181,9 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_azucar=leer.nextDouble();
+                               temp_azucar=leer.nextInt();
                                 azucar_contador++;
+                                compra_kilogramos_azucar=compra_kilogramos_azucar+temp_azucar;
                                 System.out.println("Desea usted comprar otro producto?");
                                 
                                 
@@ -183,8 +201,9 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_avena=leer.nextDouble();
+                                temp_avena=leer.nextInt();
                                 avena_contador++;
+                                 compra_kilogramos_avena=compra_kilogramos_avena+temp_avena;
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Usted no puede comprar este producto.");
                             }else{
@@ -198,7 +217,8 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_trigo=leer.nextDouble();
+                                temp_trigo=leer.nextInt();
+                                compra_kilogramos_trigo=compra_kilogramos_trigo+temp_trigo;
                                 trigo_contador++;
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Usted no puede comprar este producto.");
@@ -221,8 +241,9 @@ public class Cruz_Joseph_ProyectoTienda {
                             puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
                             if ("si".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                compra_kilogramos_maiz=leer.nextDouble();
+                                temp_maiz=leer.nextInt();
                                 maiz_contador++;
+                                compra_kilogramos_maiz=compra_kilogramos_maiz+temp_maiz;
                             }else if ("no".contentEquals(puede_comprar_productolowercase)){
                                 System.out.println("Usted no puede comprar este producto.");
                             }else{
@@ -235,17 +256,12 @@ public class Cruz_Joseph_ProyectoTienda {
                             codigo_producto_vender=leer.nextInt(); 
                         }
                         }while (codigo_producto_vender>4||codigo_producto_vender<=3);
+                        
+                        
+                        
+                        
                     }
-                    
-            }while (!"A".contentEquals(tipo_cliente)&&(!"B".contentEquals(tipo_cliente)&&(!"C".contentEquals(tipo_cliente))));
-            if  (!"A".contentEquals(tipo_cliente)&&(!"B".contentEquals(tipo_cliente)&&(!"C".contentEquals(tipo_cliente)))){
-                System.out.println("Hi");
-            }
-            
-                        
-                        
-                    
-                        
+                        }while (!"A".contentEquals(tipo_cliente)&&(!"B".contentEquals(tipo_cliente)&&(!"C".contentEquals(tipo_cliente))));
                      System.out.println("Desea usted comprar otro producto?");
                                 desea_otro_producto=leer.next();
                                 desea_comprar_otro_producto=desea_otro_producto.toLowerCase();
@@ -260,12 +276,12 @@ public class Cruz_Joseph_ProyectoTienda {
                     }
                             
                             
-                    
+                    }while (("si".contentEquals(desea_comprar_otro_producto)));
                     
                     System.out.println("******************** Bienvenido a Facturacion *******************");
                     System.out.println("*****************************************************************");
                     System.out.println("                                                               ");
-                    System.out.println("Azucar: "+azucar_contador*compra_kilogramos_azucar);
+                    System.out.println("Azucar: ");
                                
             }
         }
