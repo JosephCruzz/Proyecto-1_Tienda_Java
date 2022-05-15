@@ -50,7 +50,7 @@ public class Cruz_Joseph_ProyectoTienda {
                     System.out.println("Presione ENTER para continuar.");
                     String salto=leer.next();
                 case 2:
-                    do{
+                    
                     System.out.println("""
                                        Bienvenido a ventas.
                                         Hay tres tipos de clientes.
@@ -235,12 +235,17 @@ public class Cruz_Joseph_ProyectoTienda {
                             codigo_producto_vender=leer.nextInt(); 
                         }
                         }while (codigo_producto_vender>4||codigo_producto_vender<=3);
-                        
-                        
-                        
-                        
                     }
-                        }while (!"A".contentEquals(tipo_cliente)&&(!"B".contentEquals(tipo_cliente)&&(!"C".contentEquals(tipo_cliente))));
+                    
+            }while (!"A".contentEquals(tipo_cliente)&&(!"B".contentEquals(tipo_cliente)&&(!"C".contentEquals(tipo_cliente))));
+            if  (!"A".contentEquals(tipo_cliente)&&(!"B".contentEquals(tipo_cliente)&&(!"C".contentEquals(tipo_cliente)))){
+                System.out.println("Hi");
+            }
+            
+                        
+                        
+                    
+                        
                      System.out.println("Desea usted comprar otro producto?");
                                 desea_otro_producto=leer.next();
                                 desea_comprar_otro_producto=desea_otro_producto.toLowerCase();
@@ -255,7 +260,7 @@ public class Cruz_Joseph_ProyectoTienda {
                     }
                             
                             
-                    }while (("si".contentEquals(desea_comprar_otro_producto)));
+                    
                     
                     System.out.println("******************** Bienvenido a Facturacion *******************");
                     System.out.println("*****************************************************************");
