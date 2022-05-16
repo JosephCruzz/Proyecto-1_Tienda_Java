@@ -11,7 +11,7 @@ public class Cruz_Joseph_ProyectoTienda {
         int codigo_producto_vender=0;
         double cantidad_kilogramos;
         double azucar_contador=0;
-        String puede_comprar_producto;
+        double cuenta_cliente=0;
         String puede_comprar_productolowercase;
         String desea_comprar_otro_producto;
         String desea_otro_producto;
@@ -43,21 +43,21 @@ public class Cruz_Joseph_ProyectoTienda {
         double avena_contador=0;
         while (Salir){
             System.out.println("Bienvenido al programa de su tienda, el Menu es el siguiente.");
-            System.out.println("***************************************************************");
-            System.out.println("************************(1) Abrir Caja ************************");
-            System.out.println("***************************************************************");
-            System.out.println("************************(2) Ventas ****************************");
-            System.out.println("***************************************************************");
-            System.out.println("************************(3) Compras ***************************");
-            System.out.println("***************************************************************");
-            System.out.println("************************(4) Reportes **************************");
-            System.out.println("***************************************************************");
-            System.out.println("************************(5) Cierre de Caja ********************");
-            System.out.println("***************************************************************");
-            System.out.println("************************(7) Salir del Sistema *****************");
-            System.out.println("***************************************************************");
-            System.out.println("************************(7) Inventario******* *****************");
-            System.out.println("***************************************************************");
+            System.out.println("                                                               ");
+            System.out.println("                        (1) Abrir Caja                         ");
+            System.out.println("                                                               ");
+            System.out.println("                        (2) Ventas                             ");
+            System.out.println("                                                               ");
+            System.out.println("                        (3) Compras                            ");
+            System.out.println("                                                               ");
+            System.out.println("                        (4) Reportes                           ");
+            System.out.println("                                                               ");
+            System.out.println("                        (5) Cierre de Caja                     ");
+            System.out.println("                                                               ");
+            System.out.println("                        (6) Salir del Sistema                  ");
+            System.out.println("                                                               ");
+            System.out.println("                        (7) Inventario                         ");
+            System.out.println("                                                               ");
             System.out.println("Elija una de las opciones ingresando el numero correspondiente a la opcion que desea ingresar.");
             int menu=leer.nextInt();
             switch (menu){
@@ -71,6 +71,7 @@ public class Cruz_Joseph_ProyectoTienda {
                     String salto=leer.next();
                     break;
                 case 2:
+                    double compra_kilogramos_azucar_temp=0;
                     do{
                         do{
                     System.out.println("""
@@ -85,85 +86,101 @@ public class Cruz_Joseph_ProyectoTienda {
                     
                         
                     if ("A".contentEquals(tipo_cliente)){
+                        do{
                         System.out.println("Usted eligio el tipo de cliente "+tipo_cliente+" usted puede comprar cualquier producto disponible.");
                         System.out.println("Ingrese el codigo del producto a vender.");
                         System.out.println("1) Azucar Lps. 30 \n2) Avena Lps. 25 \n" +
                                             "3) Trigo Lps 32 \n" +
                                             "4) Maiz Lps 20 ");
                         codigo_producto_vender=leer.nextInt(); 
-                        do{
+                        
                         if (codigo_producto_vender==1){
                             leer.nextLine();
-                            do{
-                            System.out.println("Usted escogio el producto: Azucar\nEl precio de venta es de 30 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_azucar=leer.nextDouble();
-                                azucar_contador++;
-                                compra_kilogramos_azucar=compra_kilogramos_azucar+temp_azucar;
-                                System.out.println("Desea usted comprar otro producto?");
+                            
+                            System.out.println("Usted escogio el producto: Azucar\nEl precio de venta es de 30 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_azucar=leer.nextDouble();
+                               
+                                compra_kilogramos_azucar=temp_azucar*precio_azucar_venta;
+                            if (cuenta_cliente>=compra_kilogramos_azucar){
+                               
+                                
+                                azucar_contador++;                          
                                 
                                 
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
+                                
+                            }else if (cuenta_cliente<compra_kilogramos_azucar) {
+                                
                                 System.out.println("Usted no puede comprar este producto.");
                                 
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos pregunando si puede comprar el producto.\nResponda con si, o no.");
+                            
                             }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase)));
                         }else if  (codigo_producto_vender==2){
-                            do{
-                            System.out.println("Usted escogio el producto: Avena \nEl precio de venta es de 25 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                               temp_avena=leer.nextDouble();
-                                avena_contador++;
-                                 compra_kilogramos_avena=compra_kilogramos_avena+temp_avena;
+                            
+                             leer.nextLine();
+                            
+                            System.out.println("Usted escogio el producto: Avena\nEl precio de venta es de 25 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_avena=leer.nextDouble();
+                               
+                                compra_kilogramos_avena=temp_avena*precio_avena_venta;
+                            if (cuenta_cliente>=compra_kilogramos_avena){
+                               
                                 
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
+                                avena_contador++;                          
+                                
+                                
+                                
+                            }else if (cuenta_cliente<compra_kilogramos_avena) {
+                                
                                 System.out.println("Usted no puede comprar este producto.");
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos pregunando si puede comprar el producto.\nResponda con si, o no.");
-                            }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase))); 
+                                
+                            
+                            } 
                         }else if (codigo_producto_vender==3){
-                            do{
-                            System.out.println("Usted escogio el producto: trigo\nEl precio de venta es 32 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_trigo=leer.nextDouble();
-                                compra_kilogramos_trigo=compra_kilogramos_trigo+temp_trigo;
-                                trigo_contador++;
-                                                                
+                             leer.nextLine();
+                            
+                            System.out.println("Usted escogio el producto: Trigo\nEl precio de venta es de 32 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_trigo=leer.nextDouble();
+                               
+                                compra_kilogramos_trigo=precio_trigo_venta*temp_trigo;
+                            if (cuenta_cliente>=compra_kilogramos_trigo){
+                               
                                 
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
+                                trigo_contador++;                          
+                                
+                                
+                                
+                            }else if (cuenta_cliente<compra_kilogramos_trigo) {
+                                
                                 System.out.println("Usted no puede comprar este producto.");
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos pregunando si puede comprar el producto.\nResponda con si, o no.");
+                                
+                            
                             }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase)));
                         }else if (codigo_producto_vender==4){
-                            do{
-                            System.out.println("Usted escogio el producto: Maiz\nEl precio de venta es 20 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_maiz=leer.nextDouble();
-                                maiz_contador++;
-                                compra_kilogramos_maiz=compra_kilogramos_maiz+temp_maiz;
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Usted no puede comprar este producto.");
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos pregunando si puede comprar el producto.\nResponda con si, o no.");
+                            leer.nextLine();
+                            
+                            System.out.println("Usted escogio el producto: maiz\nEl precio de venta es de 20 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_maiz=leer.nextDouble();
+                               
+                                compra_kilogramos_maiz=precio_maiz_venta*temp_maiz;
+                            if (cuenta_cliente>=compra_kilogramos_maiz){
+                               
+                                
+                                maiz_contador++;                          
+                                
+                                
+                                
+                            }else if (cuenta_cliente<compra_kilogramos_maiz) {
+                                
+                                System.out.println("Usted no puede comprar este producto.");   
                             }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase)));
                         }else{
                             System.out.println("Usted eligio un numero que no es de 1-4 porfavor elegir un numero dentro de esos valores los cuales son los productos disponibles.");
                             System.out.println("Ingrese otra vez el codigo del producto a vender del 1-4");
@@ -187,57 +204,69 @@ public class Cruz_Joseph_ProyectoTienda {
                             codigo_producto_vender=leer.nextInt(); 
                         }
                        if (codigo_producto_vender==1){
-                            do{
-                            System.out.println("Usted escogio el producto: Azucar\nEl precio de venta es de 30 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                               temp_azucar=leer.nextInt();
-                                azucar_contador++;
-                                compra_kilogramos_azucar=compra_kilogramos_azucar+temp_azucar;
-                                System.out.println("Desea usted comprar otro producto?");
-                                
-                                
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Usted no puede comprar este producto.");
-                                
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos preguntando si puede comprar el producto.\nResponda con si, o no.");
+                            leer.nextLine();
+                            
+                            System.out.println("Usted escogio el producto: Azucar\nEl precio de venta es de 30 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_azucar=leer.nextDouble();
+                               
+                                compra_kilogramos_azucar=precio_azucar_venta*temp_azucar;
+                            if (cuenta_cliente>=compra_kilogramos_azucar){
+                                azucar_contador++;  
                             }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase)));
+                               
+                                
+                                                        
+                                
+                                
+                                
+                            
                         }else if  (codigo_producto_vender==2){
-                            do{
-                            System.out.println("Usted escogio el producto: Avena \nEl precio de venta es de 25 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_avena=leer.nextInt();
-                                avena_contador++;
-                                 compra_kilogramos_avena=compra_kilogramos_avena+temp_avena;
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
+                            
+                             leer.nextLine();
+                            
+                            System.out.println("Usted escogio el producto: Avena\nEl precio de venta es de 25 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_avena=leer.nextDouble();
+                               
+                                compra_kilogramos_avena=precio_avena_venta*temp_avena;
+                            if (cuenta_cliente>=compra_kilogramos_avena){
+                               
+                                
+                                avena_contador++;                          
+                                
+                                
+                                
+                            }else if (cuenta_cliente<compra_kilogramos_avena) {
+                                
                                 System.out.println("Usted no puede comprar este producto.");
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos pregunando si puede comprar el producto.\nResponda con si, o no.");
-                            }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase))); 
+                                
+                            
+                            } 
                         }else if (codigo_producto_vender==3){
-                            do{
-                            System.out.println("Usted escogio el producto: trigo\nEl precio de venta es 32 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_trigo=leer.nextDouble();
-                                compra_kilogramos_trigo=compra_kilogramos_trigo+temp_trigo;
-                                trigo_contador++;
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
+                            leer.nextLine();
+                            
+                            System.out.println("Usted escogio el producto: Trigo\nEl precio de venta es de 32 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_trigo=leer.nextDouble();
+                               
+                                compra_kilogramos_trigo=precio_trigo_venta*temp_trigo;
+                            if (cuenta_cliente>=compra_kilogramos_trigo){
+                               
+                                
+                                trigo_contador++;                          
+                                
+                                
+                                
+                            }else if (cuenta_cliente<compra_kilogramos_trigo) {
+                                
                                 System.out.println("Usted no puede comprar este producto.");
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos pregunando si puede comprar el producto.\nResponda con si, o no.");
+                                
+                            
                             }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase)));
                         }
                         }while (codigo_producto_vender>=4||codigo_producto_vender<=0);
                     }else if ("C".contentEquals(tipo_cliente)){
@@ -247,21 +276,25 @@ public class Cruz_Joseph_ProyectoTienda {
                         do{
                       
                         if (codigo_producto_vender==4){
-                            do{
-                            System.out.println("Usted escogio el producto: Maiz\nEl precio de venta es 20 Lps.\n ¿Puede usted comprar este producto?");
-                            puede_comprar_producto=leer.next();
-                            puede_comprar_productolowercase=puede_comprar_producto.toLowerCase();
-                            if ("si".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
-                                temp_maiz=leer.nextDouble();
-                                maiz_contador++;
-                                compra_kilogramos_maiz=compra_kilogramos_maiz+temp_maiz;
-                            }else if ("no".contentEquals(puede_comprar_productolowercase)){
-                                System.out.println("Usted no puede comprar este producto.");
-                            }else{
-                                System.out.println("Usted ingreso una palabra incorrecta le estamos pregunando si puede comprar el producto.\nResponda con si, o no.");
+                             leer.nextLine();
+                            
+                            System.out.println("Usted escogio el producto: maiz\nEl precio de venta es de 20 Lps.\n Cuanto dinero tiene en su cuenta?");
+                            cuenta_cliente=leer.nextDouble();
+                             System.out.println("Ingrese la cantidad de kilogramos que desea comprar.");
+                             temp_maiz=leer.nextDouble();
+                               
+                                compra_kilogramos_maiz=precio_maiz_venta*temp_maiz;
+                            if (cuenta_cliente>=compra_kilogramos_maiz){
+                               
+                                
+                                maiz_contador++;                          
+                                
+                                
+                                
+                            }else if (cuenta_cliente<compra_kilogramos_maiz) {
+                                
+                                System.out.println("Usted no puede comprar este producto.");   
                             }
-                            }while (!"si".contentEquals(puede_comprar_productolowercase)&&(!"no".contentEquals(puede_comprar_productolowercase)));
                         }
                         if (codigo_producto_vender>4||codigo_producto_vender<=3){
                             System.out.println("Usted eligio un codigo de producto invalido por lo cual no se puede comprar con el tipo de cliente actual, por favor elija un codigo combatible con su tipo de cliente.");
@@ -293,7 +326,7 @@ public class Cruz_Joseph_ProyectoTienda {
                     System.out.println("******************** Bienvenido a Facturacion *******************");
                     System.out.println("*****************************************************************");
                     System.out.println("                                                               ");
-                    System.out.println("Cantidad de kilogramos de azucar comprada: "+compra_kilogramos_azucar);
+                    System.out.println("Cantidad de kilogramos de azucar comprada: "+compra_kilogramos_azucar_temp);
                     System.out.println("Precio de cada kilogramo de azucar: "+precio_azucar_venta+" Lps");
                     precio_azucar_venta_total=compra_kilogramos_azucar*precio_azucar_venta;
                     System.out.println("Total de precio en Azucar:"+precio_azucar_venta_total); 
@@ -338,6 +371,7 @@ public class Cruz_Joseph_ProyectoTienda {
                     salto=leer.next();
                     break;
                 case 3:
+                    
                     break;
                 case 4:
                     break;
